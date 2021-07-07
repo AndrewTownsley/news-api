@@ -17,17 +17,32 @@ async function fetchNews() {
         throw new Error(message);
     }
     const news = await response.json();
+    displayNews(news)
+}
+// news.articles.forEach((article) => {
+//     const newsItem = document.createElement("li");
+//     newsItem.classList.add("news-item");
+//     newsItem.innerHTML =
+//         `
+//         <h4>${article.description}</h4>
+//         <h5>By ${article.author}</h5>
+//         <h6>Source: ${article.source.name}</h6>
+//         `;
+//     newsList.appendChild(newsItem);
+//     console.log(news);
+// })
+
+function displayNews(news) {
     news.articles.forEach((article) => {
         const newsItem = document.createElement("li");
         newsItem.classList.add("news-item");
         newsItem.innerHTML =
             `
-            <p>${article.description}</p>
+            <h4>${article.description}</h4>
             <h5>By ${article.author}</h5>
             <h6>Source: ${article.source.name}</h6>
             `;
         newsList.appendChild(newsItem);
         console.log(news);
     })
-
 }
