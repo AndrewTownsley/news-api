@@ -1,6 +1,10 @@
 const dateHeader = document.getElementById("headline-date");
 const newsList = document.getElementById("news-list");
 
+const timeElapsed = Date.now();
+const today = new Date(timeElapsed);
+dateHeader.innerHTML = `Top Headlines for ${today.toDateString()}`;
+
 fetchNews();
 
 async function fetchNews() {
@@ -18,9 +22,9 @@ async function fetchNews() {
         newsItem.classList.add("news-item");
         newsItem.innerHTML =
             `
-            <h5>${article.author}</h5>
             <p>${article.description}</p>
-            <h6>${article.source.name}</h6>
+            <h5>By ${article.author}</h5>
+            <h6>Source: ${article.source.name}</h6>
             `;
         newsList.appendChild(newsItem);
         console.log(news);
