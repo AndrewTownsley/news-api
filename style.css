@@ -10,6 +10,15 @@ body {
     color: #333;
 }       
 
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
 h1 {
     font-family: "Oswald", 'Times New Roman', Times, serif;
     margin: 2rem 2rem 0 2rem; 
@@ -88,12 +97,38 @@ h6 {
     margin-right: 1rem;
 }
 
-.article-text a {
-    text-decoration: none;
-    color: #333;
+.main-sidebar {
+    margin-top: 2rem;
+    justify-content: center;
+    align-items: center;
 }
 
-.article-text a:hover {
-    text-decoration: underline;
+.side-item img {
+    max-width: 200px;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.side-item {
+    background-color: rgb(248, 255, 255);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin: 2rem;
+    box-shadow: 3px 2px 6px 1px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 3px 2px 6px 1px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 3px 2px 6px 1px rgba(0, 0, 0, 0.1)
+}
+
+.side-item:hover {
+        /* transform: translateY(-3px); */
+        background-color: rgba(214, 246, 255, 0.3);
+        transition: ease-in 0.2s;
+        box-shadow: 2px 5px 6px 4px rgba(0, 0, 0, 0.12);
+        -moz-box-shadow: 2px 5px 6px 4px rgba(0, 0, 0, 0.12);
+        -webkit-box-shadow: 2px 5px 6px 4px rgba(0, 0, 0, 0.12);
 }
 

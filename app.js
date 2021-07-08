@@ -70,10 +70,11 @@ function fetchTechNews() {
 
             data.articles.forEach((article) => {
                 const newsItem = document.createElement("li");
-                newsItem.classList.add("news-item");
+                newsItem.classList.add("side-item");
                 newsItem.innerHTML =
                     `
-                <h4>${article.description}</h4>
+                <img src="${article.urlToImage}" alt="${article.title}">
+                <a href="${article.url}"><h4>${article.title}</h4></a>
                 <h5>By ${article.author}</h5>
                 <h6>Source: ${article.source.name}</h6>
                 `;
