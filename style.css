@@ -46,6 +46,11 @@ h6 {
     border: 2px solid rgb(190, 190, 190)
 }
 
+.main-content {
+    display: grid;
+    grid-template-columns: 25% 75%;
+}
+
 .main-headlines {
     display: flex;
     flex-direction: column;
