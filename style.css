@@ -7,15 +7,12 @@
 
 body {
     font-family: Helvetica, sans-serif, sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    color: #333;
 }       
 
 h1 {
     font-family: "Oswald", 'Times New Roman', Times, serif;
-    margin: 2rem; 
+    margin: 2rem 2rem 0 2rem; 
 }
 
 h4 {
@@ -24,6 +21,36 @@ h4 {
 
 h5 {
     font-style: italic;
+    color: #444;
+}
+
+h6 {
+    color: rgb(95, 95, 158);
+}
+
+.search-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    box-shadow: 0px 4px 7px 1px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0px 4px 7px 1px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0px 4px 7px 1px rgba(0, 0, 0, 0.1);
+}
+
+.search-header input {
+    padding: 10px;
+    min-width: 250px;
+    width: 400px;
+    border-radius: 40px;
+    border: 2px solid rgb(190, 190, 190)
+}
+
+.main-headlines {
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
 }
 
 .news-list {
@@ -31,21 +58,37 @@ h5 {
 }
 
 .news-item {
+    background-color: rgb(248, 255, 255);
+    display: flex;
     border-radius: 10px;
-    padding: 0.5rem 1rem;
+    padding: 1.5rem;
     margin: 2rem;
-    cursor: pointer;
     box-shadow: 3px 2px 6px 1px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 3px 2px 6px 1px rgba(0, 0, 0, 0.1);
     -webkit-box-shadow: 3px 2px 6px 1px rgba(0, 0, 0, 0.1);
 }
 
 .news-item:hover {
-    transform: translateY(-3px);
+    /* transform: translateY(-3px); */
     background-color: rgba(214, 246, 255, 0.3);
-    transition: ease-out 0.4s;
+    transition: ease-in 0.2s;
     box-shadow: 2px 5px 6px 4px rgba(0, 0, 0, 0.12);
     -moz-box-shadow: 2px 5px 6px 4px rgba(0, 0, 0, 0.12);
     -webkit-box-shadow: 2px 5px 6px 4px rgba(0, 0, 0, 0.12);
+}
+
+.news-item img {
+    max-width: 100px;
+    height: auto;
+    margin-right: 1rem;
+}
+
+.article-text a {
+    text-decoration: none;
+    color: #333;
+}
+
+.article-text a:hover {
+    text-decoration: underline;
 }
 
