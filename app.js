@@ -2,19 +2,25 @@ const dateMain = document.getElementById("headline-date");
 const headerDate = document.getElementById("header-date");
 const newsList = document.getElementById("news-list");
 const sideList = document.getElementById("side-list");
+const search = document.getElementById("search");
+const searchForm = document.getElementById("searchForm");
 
 const timeElapsed = Date.now();
 const today = new Date(timeElapsed);
 dateMain.innerHTML = `Top Headlines for ${today.toDateString()}`;
 headerDate.innerHTML = `${today.toDateString()}`;
 
+
+// searchForm == "" ? fetchNews() : searchNews();
+
 fetchNews();
+searchNews;
 fetchTechNews();
 
 async function fetchNews() {
     let apiKey = "2d501f81d2574b03aff509bf28d4fcfa";
     let url = `https://newsapi.org/v2/top-headlines?country=us&from=2021-07-07&sortBy=popularity&apiKey=${apiKey}`;
-
+    
     const response = await fetch(url);
     if (!response.ok) {
         const message = `An error has occurred: ${response.status}`;
@@ -24,20 +30,17 @@ async function fetchNews() {
     displayNews(data)
 }
 
-// async function fetchTechNews() {
-//     let apiKey = "2d501f81d2574b03aff509bf28d4fcfa";
-//     let url = `https://newsapi.org/v2/top-headlines?q=technology&from=2021-07-07&sortBy=popularity&apiKey=${apiKey}`;
+function searchNews(e) {
+    e.preventDefault();
 
-//     const response = await fetch(url);
-//     if (!response.ok) {
-//         const message = `An error has occurred: ${response.status}`;
-//         throw new Error(message);
-//     }
-//     const techdata = await response.json();
-//     displayNews(techdata)
-//     console.log(techData);
-// }
-
+    const query = search.value;
+    
+    let apiKey = "2d501f81d2574b03aff509bf28d4fcfa";
+    fetch(`https://newsapi.org/v2/everything?q=${query}&from=2021-07-11&sortBy=popularity&apiKey=${apiKey}`)
+    .then(response => response.json())
+    .then(data => 
+        displayNews(data))
+}
 
 function displayNews(data) {
     data.articles.forEach((article) => {
@@ -45,7 +48,7 @@ function displayNews(data) {
         newsItem.classList.add("news-item");
         newsItem.innerHTML =
             `<img src="${article.urlToImage}" alt="${article.title}">
-            <div class="article-text">
+             <div class="article-text">
                 <a href="${article.url}"><h4>${article.title}</h4></a>
                 <h5>By ${article.author}</h5>
                 <h6>Source: ${article.source.name}</h6>
@@ -53,13 +56,7 @@ function displayNews(data) {
             `;
         newsList.appendChild(newsItem);
     })
-    console.log(data);
 }
-
-
-
-
-
 
 function fetchTechNews() {
     let apiKey = "2d501f81d2574b03aff509bf28d4fcfa";
@@ -72,7 +69,7 @@ function fetchTechNews() {
                 const newsItem = document.createElement("li");
                 newsItem.classList.add("side-item");
                 newsItem.innerHTML =
-                    `
+                `
                 <img src="${article.urlToImage}" alt="${article.title}">
                 <a href="${article.url}"><h4>${article.title}</h4></a>
                 <h5>By ${article.author}</h5>
@@ -82,3 +79,7 @@ function fetchTechNews() {
             })
         )
 }
+
+
+
+searchForm.addEventListener("submit", searchNews);
